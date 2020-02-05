@@ -43,5 +43,4 @@ Python version: 3.7
     configure properly database connection
     add Dockerfile to build application, after that add another container for PostgreSQL
 
-# REST-POSTGRES-Spotify
 # REST-Postgres-Flask-Spotify-demo
