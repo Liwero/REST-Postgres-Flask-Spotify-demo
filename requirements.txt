@@ -1,11 +1,15 @@
+alembic==1.3.3
 Click==7.0
 demo==0.1
 Flask==1.1.1
+Flask-Migrate==2.5.2
 Flask-SQLAlchemy==2.4.1
 itsdangerous==1.1.0
 Jinja2==2.11.0
+Mako==1.1.1
 MarkupSafe==1.1.1
+passlib==1.7.2
+psycopg2-binary==2.8.4
 python-dotenv==0.10.5
-spotify-demo==0.1
 SQLAlchemy==1.3.13
 Werkzeug==0.16.1

@@ -6,13 +6,13 @@ from app import db
 class UserModel(db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer,
-                primary_key=True)
+                   primary_key=True)
     username = db.Column(db.String())
     password_hash = db.Column(db.String())
     login_status = db.Column(db.Boolean(),
-                          nullable=True)
+                             nullable=True)
     login_time = db.Column(db.DateTime,
-                        nullable=True)
+                           nullable=True)
 
     def __init__(self,
                  username,

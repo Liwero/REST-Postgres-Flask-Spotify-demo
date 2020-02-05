@@ -1,12 +1,13 @@
 from flask import Blueprint
 
+
 spotify_blueprint = Blueprint("demo",
                               __name__)
 
 
 @spotify_blueprint.route('/', methods=["GET"])
 def ping():
-    pass
+    return "Hello this is only demo version :) "
 
 
 @spotify_blueprint.route('/registry', methods=["POST"])
