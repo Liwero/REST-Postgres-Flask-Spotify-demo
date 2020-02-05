@@ -27,13 +27,15 @@ Python version: 3.7
     
     
 # Creating .env 
-    export CLIENT_ID                   # Client Id for Spotify connection
-    export CLIENT_SECRET               # secret for Spotify connection
+    export CLIENT_ID                    # Client Id for Spotify connection
+    export CLIENT_SECRET                # secret for Spotify connection
     
-    
-    export DB_NAME                     # database name
-    export DB_PASSWORD                 # database password
-    export DB_PORT                     # database port
+   
+    export DB_USER                      # database username
+    export DB_NAME                      # database name
+    export DB_PASSWORD                  # database password
+    export DB_PORT                      # database port
+    export DB_HOST                      # database host
     
 
 
@@ -42,5 +44,6 @@ Python version: 3.7
     add tests using pytest package
     configure properly database connection
     add Dockerfile to build application, after that add another container for PostgreSQL
+    add aslo default in os.environ.get() to connect local by default
 
 # REST-Postgres-Flask-Spotify-demo
