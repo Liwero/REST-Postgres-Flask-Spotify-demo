@@ -12,7 +12,7 @@ Python version: 3.7
     run #to run application
     
 
-#Package that are using here
+# Package that are using here
     Click==7.0
     demo==0.1
     Flask==1.1.1
@@ -26,7 +26,7 @@ Python version: 3.7
     Werkzeug==0.16.1
     
     
-#Creating .env 
+# Creating .env 
     export CLIENT_ID                   # Client Id for Spotify connection
     export CLIENT_SECRET               # secret for Spotify connection
     
@@ -37,7 +37,7 @@ Python version: 3.7
     
 
 
-#Things to add
+# Things to add
 
     add tests using pytest package
     configure properly database connection
