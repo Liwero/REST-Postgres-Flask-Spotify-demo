@@ -34,7 +34,7 @@ def add_user(username: str,
 
 
 def find_user_by_username(username: str,
-                          password: str=None
+                          password: str = None
                           ) -> MethodResponse:
     """
     Method responsible for finding user in db or if password is not None finding username in db
@@ -45,20 +45,62 @@ def find_user_by_username(username: str,
     :param password: password only to verify if password is correct
     :return: Method Response structure
     """
-    if username is None:
+    if not username:
         return MethodResponse(message="Username not provided")
-    if password is None:
+    if not password:
         if count_users(username) == 0:
+            try:
+                db.session.add(UserModel(username=username,
+                                         password=password)
+                               )
+                db.session.commit()
+                logging.info(msg="New user has been added to database Username: {}".format(username))
+                return MethodResponse(success=True,
+                                      message="You have been register in demo app")
+            except Exception as e:
+                logging.error(msg="[Adding user] Error with database. {}".format(e))
+                return MethodResponse(message="[Adding user] Problem occurred",
+                                      data=format(e))
 
-            user = db.session.query(UserModel).filter(UserModel.username == username).all()
-        elif count_users(username) == 1:
-            pass
         else:
-            pass
-    pass
+            return MethodResponse(message="Please provide different credentials")
+    else:
+        if count_users(username) == 1:
+            try:
+                user = db.session.query(UserModel).filter(UserModel.username == username).all()
+                logging.info(msg="User has been retrieved")
+                return MethodResponse(success=True,
+                                      message="User has been successfully retrieved",
+                                      data=user)
+            except Exception as e:
+                logging.error(msg="[Finding user] Problem occurred {}".format(e))
+                return MethodResponse(message="[Finding user] Problem occurred",
+                                      data=format(e))
+        else:
+            logging.error(msg="No user with this credentials in database")
+            return MethodResponse(message="No user with this credentials in database")
 
 
-def log_in() -> MethodResponse:
+def log_in(username: str,
+           password: str) -> MethodResponse:
+    """
+    Method responsible to log in user and updating record in database with flag and datetime data
+    :param username: name of user
+    :param password:
+    :return:
+    """
+    if not username or not password:
+        return MethodResponse(message="No credentials provided")
+    user = find_user_by_username(username=username,
+                                 password=password)
+    if user.success:
+        """update data"""
+    else:
+        logging.error(msg="No user in database with this credentials")
+        return MethodResponse(message="Cannot find user with this credential. Try once more")
+
+
+def update_user() -> MethodResponse:
     pass
 
 
