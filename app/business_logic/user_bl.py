@@ -99,6 +99,8 @@ def log_in(username: str,
         logging.error(msg="No user in database with this credentials")
         return MethodResponse(message="Cannot find user with this credential. Try once more")
 
+    """ Add generation token and sending back to the user, Token will allow to check different endpoints"""
+
 
 def update_user() -> MethodResponse:
     pass
