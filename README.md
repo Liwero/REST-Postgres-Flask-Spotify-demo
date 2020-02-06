@@ -3,6 +3,13 @@ Using Postgres db for authorization.\
 Python version: 3.7
 
 
+Application will be looking for a random song in Spotify. \
+Also it will allow to searching albums and artists. \
+Moreover in Postgres application will keep username and hash password for authorization. \
+After registry and login, client receive a token, which allow him to use app features. \
+Token will last 30minutes and will be checked every time client make a request.
+
+
 
 # Local development environment
 
