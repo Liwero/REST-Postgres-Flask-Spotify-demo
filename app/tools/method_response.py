@@ -22,12 +22,12 @@ class MethodResponse:
     @classmethod
     def return_error(cls, message: str, data=None):
         return jsonify(
-            MethodResponseSchema().dump(MethodResponse(message=message, data=data))), HttpStatus.BAD_REQUEST.value
+            MethodResponseSchema().dump(MethodResponse(message=message, data=data)))
 
     @classmethod
     def return_success(cls, message: str = None, data=None):
         return jsonify(
-            MethodResponseSchema().dump(MethodResponse(success=True, message=message, data=data))), HttpStatus.OK.value
+            MethodResponseSchema().dump(MethodResponse(success=True, message=message, data=data)))
 
     def return_json(self):
         return jsonify(MethodResponseSchema().dump(self))

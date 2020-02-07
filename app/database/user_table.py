@@ -13,12 +13,21 @@ class UserModel(db.Model):
                              nullable=True)
     login_time = db.Column(db.DateTime,
                            nullable=True)
+    token = db.Column(db.String(),
+                      nullable=True)
 
     def __init__(self,
                  username,
-                 password):
+                 password,
+                 login_status=False,
+                 login_time=None,
+                 token=""):
         self.username = username
         self.password_hash = hash_method.encrypt(password)
+        self.login_status = login_status
+        self.login_time = login_time
+        self.token = token
 
-    def verify_password(self, password):
-        return hash_method.verify(password, self.password_hash)
+
+def verify_password(password_hash, password):
+    return hash_method.verify(password, password_hash)
